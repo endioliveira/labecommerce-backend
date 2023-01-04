@@ -1,0 +1,20 @@
+{
+  "name": "kebab-case",
+  "version": "1.0.0",
+  "description": "primeiro projeto de back end - labecommerce",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endioliveira/labecommerce-backend.git"
+  },
+  "author": "endi oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/endioliveira/labecommerce-backend/issues"
+  },
+  "homepage": "https://github.com/endioliveira/labecommerce-backend#readme"
+}

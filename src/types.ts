@@ -1,3 +1,9 @@
+export enum CATEGORY {
+    COSMETICOS = "Cosméticos",
+    MAQUIAGENS = "Maquiagens",
+    ACESSORIOS = "Acessórios"
+}
+
 export type TUser = {
     id: string,
     email: string, 

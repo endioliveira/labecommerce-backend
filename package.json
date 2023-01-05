@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "primeiro projeto de back end - labecommerce",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "tsc && node ./build/index.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/endioliveira/labecommerce-backend/issues"
   },
-  "homepage": "https://github.com/endioliveira/labecommerce-backend#readme"
+  "homepage": "https://github.com/endioliveira/labecommerce-backend#readme",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
 }

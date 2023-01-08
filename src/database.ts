@@ -78,3 +78,27 @@ export function getProductById(idToSearch: string): TProduct[] | undefined {
     })
 }
 
+export function queryProductsByName(q: string): void {
+    const query = products.filter((product) => {
+        return product.name.toLowerCase().includes(q.toLowerCase())
+    })
+    console.table(query)
+}
+
+export function createPurchase(userId: string, productId: string, quantity: number, totalPrice: number): void {
+    const newPurchase: TPurchase = {
+        userId,
+        productId,
+        quantity,
+        totalPrice
+    }
+    purchases.push(newPurchase)
+    console.log("Compra realizada com sucesso")
+}
+
+export function getAllPurchasesFromUserId(userIdToSearch: string): TPurchase[] {
+    return purchases.filter((purchase) => {
+        return purchase.userId.toLowerCase().includes(userIdToSearch.toLowerCase())
+    })
+}
+

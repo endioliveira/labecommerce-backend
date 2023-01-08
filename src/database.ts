@@ -43,3 +43,17 @@ export const purchases: TPurchase[] = [
     }
 ]
 
+export function createUser(id: string, email: string, password: string): void {
+    const newUser: TUser = {
+        id,
+        email,
+        password
+    }
+    users.push(newUser)
+    console.log("Cadastro realizado com sucesso")
+}
+
+export function getAllUsers(): TUser[] {
+    return users
+}
+

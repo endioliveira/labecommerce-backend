@@ -1,4 +1,4 @@
-import { TUser, TProduct, TPurchase } from "./types"
+import { CATEGORY, TUser, TProduct, TPurchase } from "./types"
 
 export const users: TUser[] = [
     {
@@ -18,13 +18,13 @@ export const products: TProduct[] = [
         id: "1",
         name: "body splash",
         price: 35.00,
-        category: "cosmeticos"
+        category: CATEGORY.COSMETICOS
     },
     {
         id: "2",
         name: "batom",
         price: 10.00,
-        category: "maquiagens"
+        category: CATEGORY.MAQUIAGENS
     }
 ]
 
@@ -42,3 +42,63 @@ export const purchases: TPurchase[] = [
         totalPrice: 10
     }
 ]
+
+export function createUser(id: string, email: string, password: string): void {
+    const newUser: TUser = {
+        id,
+        email,
+        password
+    }
+    users.push(newUser)
+    console.log("Cadastro realizado com sucesso")
+}
+
+export function getAllUsers(): TUser[] {
+    return users
+}
+
+export function createProduct (id: string, name: string, price: number, category: CATEGORY): void {
+    const newProduct: TProduct = {
+        id,
+        name,
+        price,
+        category
+    }
+    products.push(newProduct)
+    console.log("Produto criado com sucesso")
+}
+
+export function getAllProducts(): TProduct[] {
+    return products
+}
+
+export function getProductById(idToSearch: string): TProduct[] | undefined {
+    return products.filter((product) => {
+        product.id === idToSearch
+    })
+}
+
+export function queryProductsByName(q: string): void {
+    const query = products.filter((product) => {
+        return product.name.toLowerCase().includes(q.toLowerCase())
+    })
+    console.table(query)
+}
+
+export function createPurchase(userId: string, productId: string, quantity: number, totalPrice: number): void {
+    const newPurchase: TPurchase = {
+        userId,
+        productId,
+        quantity,
+        totalPrice
+    }
+    purchases.push(newPurchase)
+    console.log("Compra realizada com sucesso")
+}
+
+export function getAllPurchasesFromUserId(userIdToSearch: string): TPurchase[] {
+    return purchases.filter((purchase) => {
+        return purchase.userId.toLowerCase().includes(userIdToSearch.toLowerCase())
+    })
+}
+

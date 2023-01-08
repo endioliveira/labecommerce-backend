@@ -42,3 +42,4 @@ export const purchases: TPurchase[] = [
         totalPrice: 10
     }
 ]
+

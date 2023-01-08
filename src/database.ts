@@ -57,3 +57,24 @@ export function getAllUsers(): TUser[] {
     return users
 }
 
+export function createProduct (id: string, name: string, price: number, category: CATEGORY): void {
+    const newProduct: TProduct = {
+        id,
+        name,
+        price,
+        category
+    }
+    products.push(newProduct)
+    console.log("Produto criado com sucesso")
+}
+
+export function getAllProducts(): TProduct[] {
+    return products
+}
+
+export function getProductById(idToSearch: string): TProduct[] | undefined {
+    return products.filter((product) => {
+        product.id === idToSearch
+    })
+}
+

@@ -101,4 +101,3 @@ export function getAllPurchasesFromUserId(userIdToSearch: string): TPurchase[] {
         return purchase.userId.toLowerCase().includes(userIdToSearch.toLowerCase())
     })
 }
-

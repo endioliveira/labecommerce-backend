@@ -30,19 +30,20 @@ export const products: TProduct[] = [
 
 export const purchases: TPurchase[] = [
     {
-        userId: "u1",
-        productId: "p1",
+        userId: "1",
+        productId: "1",
         quantity: 2, 
         totalPrice: 70
     }, 
     {
-        userId: "u2",
-        productId: "p2",
+        userId: "2",
+        productId: "2",
         quantity: 1, 
         totalPrice: 10
     }
 ]
 
+// createUser (cria uma nova pessoa na lista de users)
 export function createUser(id: string, email: string, password: string): void {
     const newUser: TUser = {
         id,
@@ -53,10 +54,12 @@ export function createUser(id: string, email: string, password: string): void {
     console.log("Cadastro realizado com sucesso")
 }
 
+// getAllUsers (busca todas as pessoas da lista de users)
 export function getAllUsers(): TUser[] {
     return users
 }
 
+//createProduct (cria um novo produto na lista de products)
 export function createProduct (id: string, name: string, price: number, category: CATEGORY): void {
     const newProduct: TProduct = {
         id,
@@ -68,16 +71,19 @@ export function createProduct (id: string, name: string, price: number, category
     console.log("Produto criado com sucesso")
 }
 
+//getAllProducts (busca todos os produtos da lista de products)
 export function getAllProducts(): TProduct[] {
     return products
 }
 
+// getProductById (busca por produtos baseado em um id da lista de products)
 export function getProductById(idToSearch: string): TProduct[] | undefined {
     return products.filter((product) => {
         product.id === idToSearch
     })
 }
 
+//queryProductsByName (busca por produtos baseado em um nome da lista de products)
 export function queryProductsByName(q: string): void {
     const query = products.filter((product) => {
         return product.name.toLowerCase().includes(q.toLowerCase())
@@ -85,6 +91,7 @@ export function queryProductsByName(q: string): void {
     console.table(query)
 }
 
+//createPurchase (cria uma nova compra na lista de purchases)
 export function createPurchase(userId: string, productId: string, quantity: number, totalPrice: number): void {
     const newPurchase: TPurchase = {
         userId,
@@ -96,6 +103,7 @@ export function createPurchase(userId: string, productId: string, quantity: numb
     console.log("Compra realizada com sucesso")
 }
 
+// getAllPurchasesFromUserId (busca todas as compras feitas baseado no id do usuário)
 export function getAllPurchasesFromUserId(userIdToSearch: string): TPurchase[] {
     return purchases.filter((purchase) => {
         return purchase.userId.toLowerCase().includes(userIdToSearch.toLowerCase())

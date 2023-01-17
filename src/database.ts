@@ -15,13 +15,13 @@ export const users: TUser[] = [
 
 export const products: TProduct[] = [
     {
-        id: "1",
+        id: "p01",
         name: "body splash",
         price: 35.00,
         category: CATEGORY.COSMETICOS
     },
     {
-        id: "2",
+        id: "p02",
         name: "batom",
         price: 10.00,
         category: CATEGORY.MAQUIAGENS
@@ -31,13 +31,13 @@ export const products: TProduct[] = [
 export const purchases: TPurchase[] = [
     {
         userId: "1",
-        productId: "1",
+        productId: "p01",
         quantity: 2, 
         totalPrice: 70
     }, 
     {
-        userId: "2",
-        productId: "2",
+        userId: "u002",
+        productId: "p02",
         quantity: 1, 
         totalPrice: 10
     }

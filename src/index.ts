@@ -419,3 +419,6 @@ app.put("/product/:id", (req: Request, res: Response) => {
 
 // EXERCÍCIO FLUXO DE DADOS NO BACK END - DATA 11/01/23
 
+// ------------------------------------------------------
+
+

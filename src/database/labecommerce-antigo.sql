@@ -104,3 +104,44 @@ SELECT * FROM purchases
 INNER JOIN users
 ON purchases.buyer_id = users.id
 WHERE users.id = "1";
+
+-- EXERCÍCIOS DE RELAÇÕES EM SQL II - DATA 19-01-23
+
+--Como essa lógica funciona?
+--Cada compra é registrada uma única vez na tabela purchases.
+--Cada produto da mesma compra é registrado uma única vez na tabela purchases_products.
+--Exemplo:
+
+--uma pessoa coloca 5 laranjas (p001) e 3 bananas (p002) no carrinho e confirma sua compra
+
+--a compra é registrada com id c001 na tabela purchases
+
+--a seguir, cada item do carrinho é registrado na tabela purchases_products
+--5 laranjas são registradas na tabela purchases_products (c001, p001, 5)
+--3 bananas são registradas na tabela purchases_products (c001, p002, 3)
+CREATE TABLE purchases_products(
+    purchase_id TEXT NOT NULL,
+    product_id TEXT NOT NULL,
+    quantity INTEGER NOT NULL,
+    FOREIGN KEY (purchase_id) REFERENCES purchases(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
+DROP TABLE purchases_products;
+
+INSERT INTO purchases_products(purchase_id, product_id, quantity)
+VALUES ("pu01", "p01", 1),
+       ("pu02", "p02", 2),
+       ("pu04", 'p04', 3);
+
+SELECT * FROM purchases_products;
+
+SELECT purchases.id AS purchasesId,
+products.id AS productsId,
+products.name,
+purchases_products.quantity
+FROM purchases_products
+INNER JOIN purchases 
+ON purchases_products.purchase_id = purchasesId
+INNER JOIN products
+ON purchases_products.product_id = productsId;

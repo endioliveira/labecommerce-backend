@@ -3,24 +3,25 @@ CREATE TABLE purchases (
     id TEXT PRIMARY KEY UNIQUE NOT NULL,
     total_price REAL UNIQUE NOT NULL,
     paid INTEGER NOT NULL,
-    delivered_at TEXT,
+    created_at TEXT DEFAULT (DATETIME()) NOT NULL,
     buyer_id TEXT NOT NULL,
     FOREIGN KEY (buyer_id) REFERENCES users(id)
 );
 
-INSERT INTO purchases (id, total_price, paid, delivered_at, buyer_id)
-VALUES ("pu01", 70.00, 1, NULL,"1"),
-       ("pu02", 45.00, 0,NULL, "1"),
-       ("pu03", 17.50, 1, NULL, "2"),
-       ("pu04", 92.25, 0, NULL, "3");
+INSERT INTO purchases (id, total_price, paid, buyer_id)
+VALUES ("pu01", 35.00, 1, "1"),
+       ("pu02", 45.00, 0, "1"),
+       ("pu04", 92.25, 0, "3"),
+    --    ("pu05", 30.40, 1, "3"),
+       ("pu06", 100.00, 0, "4");
 
 DROP TABLE purchases;
 
 SELECT * FROM purchases;
 
-UPDATE purchases
-SET delivered_at = DATETIME('now')
-WHERE id = "pu04";
+-- UPDATE purchases
+-- SET delivered_at = DATETIME('now')
+-- WHERE id = "pu04";
 
 SELECT * FROM purchases
 INNER JOIN users
